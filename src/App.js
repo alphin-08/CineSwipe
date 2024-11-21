@@ -2,7 +2,7 @@
 //import './App.css';
 
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import MainScreen from './pages/mainPage';
 import Login from './pages/loginP';
 import CreateAccount from './pages/createAccount';
@@ -15,16 +15,16 @@ import SuggestedShows from './pages/suggestedShows';
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route exact path="/" component={MainScreen} />
-        <Route path="/login" component={Login} />
-        <Route path="/create-account" component={CreateAccount} />
-        <Route path="/recommendations" component={Recommendations} />
-        <Route path="/preferences/movies" component={PreferencesMovies} />
-        <Route path="/preferences/shows" component={PreferencesShows} />
-        <Route path="/suggested/movies" component={SuggestedMovies} />
-        <Route path="/suggested/shows" component={SuggestedShows} />
-      </Switch>
+      <Routes>
+        <Route exact path="/" element={<MainScreen/>} />
+        <Route path="/loginP" element={<Login/>} />
+        <Route path="/create-account" element={<CreateAccount/>} />
+        <Route path="/recommendations" element={<Recommendations/>} />
+        <Route path="/preferences/movies" element={<PreferencesMovies/>} />
+        <Route path="/preferences/shows" element={<PreferencesShows/>} />
+        <Route path="/suggested/movies" element={<SuggestedMovies/>} />
+        <Route path="/suggested/shows" element={<SuggestedShows/>} />
+      </Routes>
     </Router>
   );
 }

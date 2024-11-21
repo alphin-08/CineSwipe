@@ -1,11 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import './mainPage.css';
 
 
 function MainScreen() {
     return (
-        <div>
-            <h1>Cine Swipe</h1>
-            <button> Swipe Up </button>
+
+        <div class = "mainContainer">
+            <div class = "topContainer">
+                <h1>Cine</h1>
+                <h1>Swipe</h1>
+            </div>
+
+            <div class = "bottomContainer">
+                <Link to = "/loginP">
+                    <button> <b>Swipe Up</b></button>
+                </Link>
+            </div>
         </div>
     ); 
 }
