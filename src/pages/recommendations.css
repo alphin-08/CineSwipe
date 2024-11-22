@@ -16,6 +16,10 @@
         background-color: #C3BE7F;
     }
 
+    .bottomContainer-recommendations .backB{
+        background-color: white;
+    }
+
     .mainContainer-create{
         display: flex;
         flex-direction: column;

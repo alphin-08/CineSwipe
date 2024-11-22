@@ -20,10 +20,10 @@ function App() {
         <Route path="/loginP" element={<Login/>} />
         <Route path="/createAccount" element={<CreateAccount/>} />
         <Route path="/recommendations" element={<Recommendations/>} />
-        <Route path="/preferences/movies" element={<PreferencesMovies/>} />
-        <Route path="/preferences/shows" element={<PreferencesShows/>} />
-        <Route path="/suggested/movies" element={<SuggestedMovies/>} />
-        <Route path="/suggested/shows" element={<SuggestedShows/>} />
+        <Route path="/preferencesMovies" element={<PreferencesMovies/>} />
+        <Route path="/preferencesShows" element={<PreferencesShows/>} />
+        <Route path="/suggestedMovies" element={<SuggestedMovies/>} />
+        <Route path="/suggestedShows" element={<SuggestedShows/>} />
       </Routes>
     </Router>
   );

@@ -17,7 +17,11 @@ function Recommendations() {
                 </Link>
 
                 <Link to = '/preferencesShows'>
-                    <button class = 'showB'><b>SHOW</b></button>
+                    <button class ='showB'><b>SHOW</b></button>
+                </Link>
+
+                <Link to = '/loginP'>
+                    <button class ='backB'><b>BACK</b></button>
                 </Link>
             </div>
         </div>

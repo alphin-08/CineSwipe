@@ -1,0 +1,85 @@
+
+
+@media (max-width: 768px){
+
+    .bottomContainer-suggestedM button{
+        width: 120px;
+        height: 50px;
+        border-radius: 8px;
+        box-shadow: 0 4px black;
+        font-size: 25px;
+        background-color: white;
+        cursor: pointer;
+    }
+
+    /* .middleContainer-suggestedM input{
+        width:90%;
+        height: 50px;
+        font-size: 25px;
+    } */
+
+    /* .middleContainer-suggestedM input::placeholder{
+        font-size:20px; 
+        text-align: center;
+    } */
+
+    .mainContainer-suggestedM{
+        width: 100vw;
+        height: 100vh; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #8A7171;
+    }
+
+    .topContainer-suggestedM{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+        color: white;
+        margin-top: 30px;
+    }
+
+    .topContainer-suggestedM h1{
+        margin-bottom: 50px;
+    }
+
+    .middleContainer-suggestedM{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .middleContainer-suggestedM h1{
+        color: white;
+        font-size: 20px;
+    }
+
+    .movieImgM{
+        margin-bottom: 150px;
+    }
+
+    .headersM{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 120px;
+    }
+
+    .bottomContainer-suggestedM{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        gap:2rem; 
+        margin-top: 50px;
+    }
+
+}

@@ -1,0 +1,72 @@
+
+
+@media (max-width: 768px){
+
+    .bottomContainer-preferenceM button{
+        width: 120px;
+        height: 50px;
+        border-radius: 8px;
+        box-shadow: 0 4px black;
+        font-size: 25px;
+        background-color: white;
+        cursor: pointer;
+    }
+
+    .bottomContainer-preferenceM .showB{
+        background-color: #C3BE7F;
+    }
+
+    .middleContainer-preferenceM input{
+        width:90%;
+        height: 50px;
+        font-size: 25px;
+    }
+
+    .middleContainer-preferenceM input::placeholder{
+        font-size:20px; 
+        text-align: center;
+    }
+
+    .mainContainer-preferenceM{
+        width: 100vw;
+        height: 100vh; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #8A7171;
+    }
+
+    .topContainer-preferenceM{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+        color: white;
+        margin-top: 30px;
+    }
+
+    .topContainer-preferenceM h1{
+        margin-bottom: 50px;
+    }
+
+    .middleContainer-preferenceM{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .bottomContainer-preferenceM{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        gap:2rem; 
+        margin-top: 50px;
+    }
+
+}
