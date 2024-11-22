@@ -18,7 +18,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<MainScreen/>} />
         <Route path="/loginP" element={<Login/>} />
-        <Route path="/create-account" element={<CreateAccount/>} />
+        <Route path="/createAccount" element={<CreateAccount/>} />
         <Route path="/recommendations" element={<Recommendations/>} />
         <Route path="/preferences/movies" element={<PreferencesMovies/>} />
         <Route path="/preferences/shows" element={<PreferencesShows/>} />

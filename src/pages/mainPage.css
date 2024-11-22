@@ -1,6 +1,4 @@
 
-
-
 @media (max-width: 768px){
     body{
         background-color:#2D2D2D;
@@ -8,7 +6,7 @@
         font-size: 45px;
     }
 
-    h1{
+    .topContainer h1{
         color: white;
     }
 
@@ -25,6 +23,10 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin-top: 80px;
+    }
+    .topContainer h1{
+        margin: 5%;
     }
 
     .bottomContainer{
@@ -36,10 +38,12 @@
         align-items: center;
     }
 
-    button{
+    .bottomContainer button{
+        border-radius: 8px;
+        box-shadow: 0 4px black;
+        font-size: 25px;
+        cursor: pointer;
         background-color: #8A7171;
-        font-size: 35px;
-        border-radius: 30%;
     }
 
 }

@@ -1,40 +1,46 @@
 
 @media (max-width: 768px){
-    body{
-        background-color:#2D2D2D;
-        font-family: 'Monomaniac One';
-        font-size: 45px;
+
+    .middleContainer-login button, .bottomContainer-login button{
+        border-radius: 8px;
+        box-shadow: 0 4px black;
+        font-size: 25px;
+        cursor: pointer;
+        background-color: #8A7171;
     }
 
-    h1{
-        color: white;
-    }
-
-    input{
-        width: 100%;
+    .middleContainer-login input{
+        width:90%;
         height: 50px;
+        font-size: 25px;
     }
 
-    input::placeholder{
+    .middleContainer-login input::placeholder{
         font-size:20px; 
+        text-align: center;
     }
 
-    .mainConntainer{
+    .mainContainer-login{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 20%;
+        font-size: 32px;
     }
 
-    .middleContainer{
+    .topContainer-login{
+        margin-bottom: 50px;
+    }
+
+    .middleContainer-login{
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 40px;
+        margin-bottom: 100px;
     }
 
-    .bottomContainer{
+    .bottomContainer-login{
         display: flex;
         flex-direction: column;
         gap:2rem; 
