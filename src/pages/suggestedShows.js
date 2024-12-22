@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import './suggestedS.css';
+import React from 'react';
 
 function SuggestedShows() {
     return (

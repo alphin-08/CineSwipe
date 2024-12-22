@@ -1,46 +1,61 @@
 import { Link } from "react-router-dom";
 import './suggestedM.css';
+import React, { useEffect, useState } from 'react';
 
 function SuggestedMovies() {
-    return (
-        <div class = "mainContainer-suggestedM">
+    const [movies, setMovies] = useState([]);
 
-            <div class = "topContainer-suggestedM">
-                <h1>Suggested Movies</h1>
-            </div>
+  useEffect(() => {
+    // Retrieve movies from local storage
+    const storedMovies = JSON.parse(localStorage.getItem("movies"));
+    if (storedMovies) {
+      setMovies(storedMovies);
+    }
+  }, []);
 
+  return (
+    <div className="mainContainer-suggestedM">
+      <div className="topContainer-suggestedM">
+        <h1>Suggested Movies</h1>
+      </div>
 
-            <div class = "middleContainer-suggestedM">
-                {/* <input type='text' placeholder='Genre: '/>
-                <input type='text' placeholder='Age Rating: '/>
-                <input type='text' placeholder='Ideal Season Length: '/>
-                <input type='text' placeholder='Year: '/>
-                <input type='text' placeholder='Rotten Tomatoe Score: '/> */}
-                <div class='movieImgM'>
-                    <h1>Movie Image</h1>
+      <div className="middleContainer-suggestedM">
+        {movies.length > 0 ? (
+          movies.map((movie) => (
+            <div key={movie.id} className="movie">
+              <div className="movieImgM">
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  alt={movie.title}
+                />
+              </div>
+              <div className="headersM">
+                <div className="leftColumnM">
+                  <h2>Title: {movie.title}</h2>
+                  <h2>Genre: {movie.genre_ids.join(", ")}</h2>
+                  <h2>Year: {movie.release_date}</h2>
                 </div>
-
-                <div class = 'headersM'>
-                    <div class = 'leftColumnM'> 
-                        <h1>Genre: </h1>
-                        <h1>Age Rating: </h1>
-                        <h1>Year: </h1>
-                    </div>
-
-                    <div class = 'rightColumnM'> 
-                        <h1>Length: </h1>
-                        <h1>RT Score: </h1>
-                    </div>
+                <div className="rightColumnM">
+                  <h2>Rating: {movie.vote_average}</h2>
+                  <h2>Language: {movie.original_language}</h2>
                 </div>
+              </div>
             </div>
+          ))
+        ) : (
+          <h2>No movies found. Please try different filters.</h2>
+        )}
+      </div>
 
-            <div class = "bottomContainer-suggestedM">
-                <Link to = '/preferencesMovies'> 
-                    <button><b>BACK</b></button>
-                </Link>
-            </div>
-        </div>
-    ); 
+      <div className="bottomContainer-suggestedM">
+        <Link to="/preferencesMovies">
+          <button>
+            <b>BACK</b>
+          </button>
+        </Link>
+      </div>
+    </div>
+  );
 }
 
 export default SuggestedMovies;

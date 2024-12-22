@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import './preferencesS.css';
+import React from 'react';
+
 
 function PreferencesShows() {
     return (
