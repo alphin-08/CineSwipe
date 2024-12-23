@@ -1,47 +1,61 @@
 import { Link } from "react-router-dom";
 import './suggestedS.css';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 function SuggestedShows() {
-    return (
-        <div class = "mainContainer-suggestedS">
+    const [shows, setShows] = useState([]);
 
-            <div class = "topContainer-suggestedS">
+    useEffect(() => {
+        // Retrieve shows from local storage
+        const storedShows = JSON.parse(localStorage.getItem("shows"));
+        if (storedShows) {
+            setShows(storedShows);
+        }
+    }, []);
+
+    return (
+        <div className="mainContainer-suggestedS">
+            <div className="topContainer-suggestedS">
                 <h1>Suggested Shows</h1>
             </div>
 
-
-            <div class = "middleContainer-suggestedS">
-                {/* <input type='text' placeholder='Genre: '/>
-                <input type='text' placeholder='Age Rating: '/>
-                <input type='text' placeholder='Ideal Season Length: '/>
-                <input type='text' placeholder='Year: '/>
-                <input type='text' placeholder='Rotten Tomatoe Score: '/> */}
-                <div class='movieImgS'>
-                    <h1>Movie Image</h1>
-                </div>
-
-                <div class = 'headersS'>
-                    <div class = 'leftColumnS'> 
-                        <h1>Genre: </h1>
-                        <h1>Age Rating: </h1>
-                        <h1>Year: </h1>
-                    </div>
-
-                    <div class = 'rightColumnS'> 
-                        <h1>Length: </h1>
-                        <h1>RT Score: </h1>
-                    </div>
-                </div>
+            <div className="middleContainer-suggestedS">
+                {shows.length > 0 ? (
+                    shows.map((show) => (
+                        <div key={show.id} className="show">
+                            <div className="showImgS">
+                                <img
+                                    src={`https://image.tmdb.org/t/p/w500${show.poster_path}`}
+                                    alt={show.name}
+                                />
+                            </div>
+                            <div className="headersS">
+                                <div className="leftColumnS">
+                                    <h2>Title: {show.name}</h2>
+                                    <h2>Genre: {show.genre_ids.join(", ")}</h2>
+                                    <h2>Year: {show.first_air_date}</h2>
+                                </div>
+                                <div className="rightColumnS">
+                                    <h2>Rating: {show.vote_average}</h2>
+                                    <h2>Language: {show.original_language}</h2>
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                ) : (
+                    <h2>No shows found. Please try different filters.</h2>
+                )}
             </div>
 
-            <div class = "bottomContainer-suggestedS">
-                <Link to = '/preferencesShows'> 
-                    <button><b>BACK</b></button>
+            <div className="bottomContainer-suggestedS">
+                <Link to="/recommendations">
+                    <button>
+                        <b>BACK</b>
+                    </button>
                 </Link>
             </div>
         </div>
-    ); 
+    );
 }
 
 export default SuggestedShows;

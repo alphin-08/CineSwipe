@@ -1,4 +1,4 @@
-import {useState} from "react"
+import {useState, useEffect} from "react"
 import { Link, useNavigate} from "react-router-dom";
 import './preferencesM.css';
 import React from 'react';
@@ -15,6 +15,10 @@ function PreferencesMovies() {
   });
   const navigate = useNavigate();
 
+  useEffect(() => {
+        localStorage.removeItem("shows");
+  }, []);
+  
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFilters({ ...filters, [name]: value });
@@ -22,8 +26,8 @@ function PreferencesMovies() {
 
   const handleGenerate = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/movies", {
-        params: filters,
+      const response = await axios.get("http://localhost:8000/api/media", {
+        params: { filters, type: "movies" },
       });
       const movies = response.data;
       // Store movies in local storage to pass them to SuggestedMovies
