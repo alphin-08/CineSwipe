@@ -3,11 +3,11 @@
 @media (max-width: 768px){
 
     .bottomContainer-preferenceM button{
-        width: 120px;
-        height: 50px;
+        width: 100px;
+        height: 40px;
         border-radius: 8px;
         box-shadow: 0 4px black;
-        font-size: 25px;
+        font-size: 20px;
         background-color: white;
         cursor: pointer;
     }
@@ -17,14 +17,31 @@
     }
 
     .middleContainer-preferenceM input{
-        width:90%;
-        height: 50px;
-        font-size: 25px;
+        width:70%;
+        height: 30px;
+        font-size: 18px;
     }
 
     .middleContainer-preferenceM input::placeholder{
-        font-size:20px; 
+        font-size:15px; 
         text-align: center;
+    }
+
+    .middleContainer-preferenceM {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+    .middleContainer-preferenceM select {
+        width: 70%;
+        height: 30px;
+        font-size: 18px;
+        text-align: center;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 0 10px;
     }
 
     .mainContainer-preferenceM{
@@ -42,21 +59,13 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        font-size: 25px;
+        font-size: 15px;
         color: white;
         margin-top: 30px;
     }
 
     .topContainer-preferenceM h1{
-        margin-bottom: 50px;
-    }
-
-    .middleContainer-preferenceM{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
+        margin-bottom: 100px;
     }
 
     .bottomContainer-preferenceM{

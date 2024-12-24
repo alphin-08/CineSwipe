@@ -1,29 +1,33 @@
-/* Base Styles */
+
 .mainContainer-suggestedS {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 20px;
-    background-color: #8A7171;
+    background-color: #C3BE7F;
     color: white;
-    width: 100vw;
-    height: 100vh;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
 }
 
 .topContainer-suggestedS {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .topContainer-suggestedS h1 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
 }
 
 .middleContainer-suggestedS {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     align-items: center;
     width: 100%;
 }
@@ -33,19 +37,19 @@
     flex-direction: column;
     align-items: center;
     background-color: #4B3E3E;
-    padding: 15px;
+    padding: 10px;
     border-radius: 8px;
     width: 90%;
-    /* Responsive width */
-    max-width: 400px;
-    /* Optional max width */
+    margin-bottom: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .showImgS img {
     width: 100%;
-    max-width: 300px;
+    max-width: 280px;
+    height: auto;
     border-radius: 8px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .headersS {
@@ -53,25 +57,43 @@
     justify-content: space-between;
     gap: 10px;
     width: 100%;
+    text-align: left;
+}
+
+.headersS .leftColumnS,
+.headersS .rightColumnS {
+    flex: 1;
 }
 
 .headersS h2 {
-    font-size: 1rem;
-    margin: 5px 0;
+    font-size: 0.9rem;
+    margin: 3px 0;
     word-wrap: break-word;
 }
 
 .bottomContainer-suggestedS {
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .bottomContainer-suggestedS button {
-    width: 120px;
-    height: 40px;
-    font-size: 1rem;
+    width: 100px;
+    height: 35px;
+    font-size: 0.9rem;
     background-color: white;
     color: #4B3E3E;
     border: none;
     border-radius: 8px;
     cursor: pointer;
+}
+
+@media (min-width: 769px) {
+    body {
+        background-color: #C3BE7F;
+    }
+
+    .mainContainer-suggestedS {
+        width: 400px;
+        max-height: calc(100vh - 40px);
+        overflow-y: auto;
+    }
 }
