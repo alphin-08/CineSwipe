@@ -1,24 +1,72 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import './mainPage.css';
-
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "./mainPage.css";
 
 function MainScreen() {
-    return (
+    const [startY, setStartY] = useState(null);
+    const navigate = useNavigate();
 
-        <div class = "mainContainer">
-            <div class = "topContainer">
+    const handleTouchStart = (e) => {
+        setStartY(e.touches[0].clientY);
+    };
+
+    const handleTouchMove = (e) => {
+        if (startY !== null) {
+            const currentY = e.touches[0].clientY;
+            if (startY - currentY > 50) {
+                triggerAnimation();
+            }
+        }
+    };
+
+    const handleMouseDown = (e) => {
+        setStartY(e.clientY);
+    };
+
+    const handleMouseMove = (e) => {
+        if (startY !== null) {
+            const currentY = e.clientY;
+            if (startY - currentY > 50) {
+                triggerAnimation();
+            }
+        }
+    };
+
+    const handleMouseUp = () => {
+        setStartY(null);
+    };
+
+    const triggerAnimation = () => {
+        const container = document.querySelector(".mainContainer");
+        if (container) {
+            container.classList.add("slideUp");
+            setTimeout(() => {
+                navigate("/loginP"); // Navigate to the next page
+            }, 500); // Wait for the animation to finish
+        }
+    };
+
+    return (
+        <div
+            className="mainContainer"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+        >
+            <div className="topContainer">
                 <h1>Cine</h1>
                 <h1>Swipe</h1>
             </div>
 
-            <div class = "bottomContainer">
-                <Link to = "/loginP">
-                    <button> <b>Swipe Up</b></button>
-                </Link>
+            <div className="bottomContainer">
+                <button onClick={triggerAnimation}>
+                    <b>Swipe Up</b>
+                </button>
             </div>
         </div>
-    ); 
+    );
 }
 
 export default MainScreen;

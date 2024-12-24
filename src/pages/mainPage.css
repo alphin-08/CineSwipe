@@ -4,6 +4,7 @@
         background-color:#2D2D2D;
         font-family: 'Monomaniac One';
         font-size: 45px;
+        overflow: hidden;
     }
 
     .topContainer h1{
@@ -15,6 +16,14 @@
         flex-direction: column;
         justify-content: center;
         align-items: center ;
+        width: 100%;
+        height: 100vh;
+        transform: translateY(0);
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .mainContainer.slideUp {
+        transform: translateY(-100%);
     }
 
     .topContainer{
@@ -27,6 +36,7 @@
     }
     .topContainer h1{
         margin: 5%;
+        color: white;
     }
 
     .bottomContainer{
