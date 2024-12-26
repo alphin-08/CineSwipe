@@ -1,0 +1,15 @@
+{
+  "name": "cine-backEnd",
+  "version": "0.1.0",
+  "private": true,
+  "main": "backendS.js",
+  "dependencies": {
+    "express": "^4.21.1",
+    "dotenv": "^16.4.5",
+    "cors": "^2.8.5",
+    "axios": "^1.7.7"
+  },
+  "scripts": {
+    "start": "node backendS.js"
+  }
+}
