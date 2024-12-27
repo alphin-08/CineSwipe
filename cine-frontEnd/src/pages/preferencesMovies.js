@@ -26,16 +26,24 @@ function PreferencesMovies() {
 
   const handleGenerate = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/media`, {
-        params: { ...filters, type: "movies" },
-      });
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/media`, {
+            params: { ...filters, type: "movies" },
+        });
+        const movies = response.data;
 
-      const movies = response.data;
-      // Store movies in local storage to pass them to SuggestedMovies
-      localStorage.setItem("movies", JSON.stringify(movies));
-      navigate("/suggestedMovies");
+        console.log("API Response:", movies); // Debugging
+
+        if (Array.isArray(movies)) {
+            localStorage.setItem("movies", JSON.stringify(movies));
+            console.log("Movies saved in localStorage:", movies); // Debugging
+            navigate("/suggestedMovies");
+        } else {
+            console.error("Unexpected API Response:", movies);
+            alert("Failed to fetch movies. Please try again.");
+        }
     } catch (error) {
-      console.error("Error fetching movies:", error.message);
+        console.error("Error fetching movies:", error.message);
+        alert("An error occurred while fetching movies.");
     }
   };
 

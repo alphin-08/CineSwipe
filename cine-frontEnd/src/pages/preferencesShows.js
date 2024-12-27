@@ -26,18 +26,29 @@ function PreferencesShows() {
 
   const handleGenerate = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/media`, {
-        params: { type: "shows", ...filters },
-      });
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/media`, {
+            params: { type: "shows", ...filters },
+        });
 
-      const shows = response.data;
-      // Store shows in local storage to pass them to SuggestedShows
-      localStorage.setItem("shows", JSON.stringify(shows));
-      navigate("/suggestedShows");
+        const shows = response.data;
+
+        console.log("API Response:", shows); // Debugging
+
+        // Validate response before saving to localStorage
+        if (Array.isArray(shows)) {
+            localStorage.setItem("shows", JSON.stringify(shows));
+            console.log("Shows saved in localStorage:", shows); // Debugging
+            navigate("/suggestedShows");
+        } else {
+            console.error("Unexpected API Response:", shows);
+            alert("Failed to fetch shows. Please try again.");
+        }
     } catch (error) {
-      console.error("Error fetching shows:", error.message);
+        console.error("Error fetching shows:", error.message);
+        alert("An error occurred while fetching shows. Please try again later.");
     }
   };
+
 
   return (
     <div className="mainContainer-preferenceS">
