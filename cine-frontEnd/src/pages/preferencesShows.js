@@ -26,9 +26,10 @@ function PreferencesShows() {
 
   const handleGenerate = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/media", {
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/media`, {
         params: { type: "shows", ...filters },
       });
+
       const shows = response.data;
       // Store shows in local storage to pass them to SuggestedShows
       localStorage.setItem("shows", JSON.stringify(shows));

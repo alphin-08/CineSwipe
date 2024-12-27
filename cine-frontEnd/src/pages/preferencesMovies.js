@@ -26,9 +26,10 @@ function PreferencesMovies() {
 
   const handleGenerate = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/api/media", {
-        params: { filters, type: "movies" },
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/media`, {
+        params: { ...filters, type: "movies" },
       });
+
       const movies = response.data;
       // Store movies in local storage to pass them to SuggestedMovies
       localStorage.setItem("movies", JSON.stringify(movies));
