@@ -14,16 +14,6 @@ app.get('/api/media', async (req, res) =>{
         const apiKey = process.env.API_KEY;
         const { type, genre, year, language, minRating, maxRating } = req.query;
 
-        // const response = await axios.get('https://api.themoviedb.org/3/discover/movie', {
-        //     headers: { 'Authorization': `Bearer ${apiKey}` },
-        //     params: {
-        //         with_genres: genre,
-        //         primary_release_year: year,
-        //         with_original_language: language,
-        //         "vote_average.gte": minRating,
-        //         "vote_average.lte": maxRating,
-        //     },
-        // });
         const endpoint =
             type === "shows"
                 ? "https://api.themoviedb.org/3/discover/tv"
