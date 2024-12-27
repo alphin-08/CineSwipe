@@ -20,6 +20,7 @@
         height: 100vh;
         transform: translateY(0);
         transition: transform 0.5s ease-in-out;
+        background-color: #2D2D2D;
     }
 
     .mainContainer.slideUp {
@@ -56,4 +57,79 @@
         background-color: #8A7171;
     }
 
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Monomaniac One';
+    background-color: #000;
+    /* Black background for surrounding space */
+    display: flex;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+    min-height: 100vh;
+    /* Full viewport height */
+    overflow: hidden;
+    /* Prevent scrolling */
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* Allow full width responsiveness */
+    max-width: 1024px;
+    /* Restrict the maximum width */
+    min-width: 768px;
+    /* Ensure it doesn't get narrower than 768px */
+    height: 100vh;
+    /* Take up the full viewport height */
+    background-color: #2D2D2D;
+    /* App background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Optional shadow */
+    margin: 0 auto;
+    /* Center horizontally */
+}
+
+.topContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.topContainer h1 {
+    margin: 5%;
+    color: white;
+    font-size: 45px;
+}
+
+.bottomContainer {
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottomContainer button {
+    border-radius: 8px;
+    box-shadow: 0 4px black;
+    font-size: 25px;
+    cursor: pointer;
+    background-color: #8A7171;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
 }

@@ -1,3 +1,84 @@
+.mainContainer-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1024px;
+    /* Restrict the maximum width */
+    min-width: 768px;
+    /* Set the minimum width */
+    min-height: 100vh;
+    /* Take up the full viewport height */
+    background-color: #2D2D2D;
+    /* App background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Optional shadow */
+    margin: 0 auto;
+    /* Center horizontally */
+    padding: 20px;
+    /* Add padding for spacing */
+}
+
+.topContainer-login {
+    margin-bottom: 50px;
+    text-align: center;
+    /* Center the text horizontally */
+}
+
+.topContainer-login h1 {
+    color: white;
+    /* Ensure the text is visible */
+    font-size: 48px;
+    /* Adjust the font size for visibility */
+}
+
+.middleContainer-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 100px;
+    width: 90%;
+}
+
+.middleContainer-login input {
+    width: 100%;
+    /* Adjust input width */
+    max-width: 600px;
+    /* Restrict input width */
+    height: 50px;
+    font-size: 25px;
+}
+
+.middleContainer-login input::placeholder {
+    font-size: 20px;
+    text-align: center;
+}
+
+.middleContainer-login button,
+.bottomContainer-login button {
+    border-radius: 8px;
+    box-shadow: 0 4px black;
+    font-size: 25px;
+    cursor: pointer;
+    background-color: #8A7171;
+    color: white;
+    /* Ensure text is visible on the button */
+    padding: 10px 20px;
+    /* Add padding for better appearance */
+    max-width: 300px;
+    /* Restrict button width */
+}
+
+.bottomContainer-login {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    /* Center buttons horizontally */
+}
+
 
 @media (max-width: 768px){
 
@@ -21,15 +102,22 @@
     }
 
     .mainContainer-login{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        max-width: 100%;
+        min-width: unset;
+        padding: 10px;
+        box-shadow: none;
         font-size: 32px;
+        background-color: black;
     }
 
     .topContainer-login{
         margin-bottom: 50px;
+        text-align: center;
+    }
+
+    .topContainer-login h1 {
+        color: white;
+        font-size: 48px;
     }
 
     .middleContainer-login{
@@ -45,6 +133,4 @@
         flex-direction: column;
         gap:2rem; 
     }
-
-
 }

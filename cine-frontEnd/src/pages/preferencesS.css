@@ -1,4 +1,101 @@
+.mainContainer-preferenceS {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1024px;
+    /* Restrict the maximum width */
+    min-width: 768px;
+    /* Set the minimum width */
+    min-height: 100vh;
+    /* Take up the full viewport height */
+    background-color: #C3BE7F;
+    /* App background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /* Optional shadow */
+    margin: 0 auto;
+    /* Center horizontally */
+    padding: 20px;
+    /* Add padding for spacing */
+}
+
+.topContainer-preferenceS {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    /* Adjusted font size for larger screens */
+    color: white;
+    margin-bottom: 50px;
+}
+
+.topContainer-preferenceS h1 {
+    margin-bottom: 30px;
+}
+
+.middleContainer-preferenceS {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    /* Add spacing between inputs */
+    width: 90%;
+}
+
+.middleContainer-preferenceS input,
+.middleContainer-preferenceS select {
+    width: 80%;
+    /* Adjust input and select width */
+    max-width: 600px;
+    /* Restrict input and select width */
+    height: 40px;
+    font-size: 18px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.middleContainer-preferenceS input::placeholder {
+    font-size: 16px;
+    text-align: center;
+}
+
+.bottomContainer-preferenceS {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    /* Add space between buttons */
+    margin-top: 20px;
+}
+
+.bottomContainer-preferenceS button {
+    width: 150px;
+    height: 50px;
+    border-radius: 8px;
+    box-shadow: 0 4px black;
+    font-size: 18px;
+    background-color: white;
+    cursor: pointer;
+    color: black;
+}
+
+
 @media (max-width: 768px){
+    .mainContainer-preferenceS {
+            width: 100%;
+            min-width: unset;
+            /* Remove min-width restriction for small screens */
+            max-width: unset;
+            /* Remove max-width restriction for small screens */
+            padding: 10px;
+            /* Reduce padding */
+        }
 
     .bottomContainer-preferenceS button{
         width: 100px;
