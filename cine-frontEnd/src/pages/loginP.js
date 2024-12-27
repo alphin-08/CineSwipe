@@ -8,13 +8,13 @@ function Login() {
         <div class = "mainContainer-login">
 
             <div class = "topContainer-login">
-                <h1>Login In</h1>
+                <h1>Login</h1>
             </div>
 
             <div class = "middleContainer-login">
                 <input type='text' placeholder='Username'/>
                 <input type='text' placeholder='Password'/>
-                <button> <b>Login In</b></button>
+                <button> <b>Login</b></button>
             </div>
 
 

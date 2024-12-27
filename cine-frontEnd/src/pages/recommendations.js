@@ -8,7 +8,8 @@ function Recommendations() {
         <div class = "mainContainer-recommendations">
 
             <div class = "topContainer-recommendations">
-                <h1>Recommendations For ?</h1>
+                <h1>Recommendations</h1>
+                <h1>For ?</h1>
             </div>
 
 

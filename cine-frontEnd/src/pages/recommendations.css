@@ -88,25 +88,26 @@
         background-color: white;
     }
 
-    .mainContainer-create{
+    .mainContainer-recommendations{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        background-color: black;
     }
 
     .topContainer-recommendations{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        text-align: center;
+        margin-right: 30px;
         font-size: 11px;
         color: white;
         margin-top: 50px;
+        text-align: center;
     }
 
     .topContainer-recommendations h1{
-        margin-bottom: 200px;
+        /* text-align: center; */
+        margin-bottom: 10px;
     }
 
     .bottomContainer-recommendations{
