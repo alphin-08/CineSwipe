@@ -5,4 +5,4 @@ CineSwipe is a sleek, interactive web app that offers personalized movie and TV 
 
 
 
-Try it out here: [CineSwipe App](cine-swipe-3d2uw7vx0-alphins-projects-bd2e9cb2.vercel.app)
+Try it out here: [CineSwipe App](https://cine-swipe-alphins-projects-bd2e9cb2.vercel.app)
