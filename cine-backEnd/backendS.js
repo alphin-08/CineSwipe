@@ -24,6 +24,14 @@ app.get('/api/media', async (req, res) => {
         const apiKey = process.env.API_KEY;
         const { type, genre, year, language, minRating, maxRating } = req.query;
 
+        if (!type) {
+            return res.status(400).json({ error: "Type is required (movies or shows)." });
+        }
+
+        if (!genre && !year && !language && !minRating && !maxRating) {
+            return res.status(400).json({ error: "At least one filter parameter (genre, year, language, minRating, maxRating) is required." });
+        }
+
         const endpoint =
             type === "shows"
                 ? "https://api.themoviedb.org/3/discover/tv"
@@ -41,7 +49,9 @@ app.get('/api/media', async (req, res) => {
         } else if (type === "shows") {
             params.first_air_date_year = year;
         }
+
         console.log("Requesting TMDb API with params:", params);
+
         const response = await axios.get(endpoint, {
             headers: { Authorization: `Bearer ${apiKey}` },
             params,
@@ -50,7 +60,7 @@ app.get('/api/media', async (req, res) => {
         res.json(response.data.results);
     } catch (error) {
         console.error('Error fetching data:', error.message);
-        res.status(500).send(`Error fetching ${req.query.type || "media"}`);
+        res.status(500).json({ error: "Error fetching media data." });
     }
 });
 
