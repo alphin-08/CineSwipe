@@ -1,15 +1,25 @@
+const PORT = process.env.PORT || 8000; // Use process.env.PORT for Render
+const express = require('express');
+const cors = require('cors');
+const axios = require('axios');
+require('dotenv').config();
 
-
-const PORT = 8000
-const express = require('express')
-const cors = require('cors')
-const axios = require('axios')
-require('dotenv').config()
- 
 const app = express();
 app.use(cors());
 
-app.get('/api/media', async (req, res) =>{
+// Base route
+app.get('/', (req, res) => {
+    res.send('Welcome to CineSwipe Backend!');
+});
+
+// Debug route
+app.get('/api/debug', (req, res) => {
+    console.log("Debug endpoint hit");
+    res.json({ message: "Debug endpoint works!", port: PORT });
+});
+
+// Media route
+app.get('/api/media', async (req, res) => {
     try {
         const apiKey = process.env.API_KEY;
         const { type, genre, year, language, minRating, maxRating } = req.query;
@@ -26,7 +36,7 @@ app.get('/api/media', async (req, res) =>{
             "vote_average.lte": maxRating,
         };
 
-         if (type === "movies") {
+        if (type === "movies") {
             params.primary_release_year = year;
         } else if (type === "shows") {
             params.first_air_date_year = year;
@@ -44,9 +54,11 @@ app.get('/api/media', async (req, res) =>{
     }
 });
 
+// Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+
 
 
  
