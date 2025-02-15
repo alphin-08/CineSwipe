@@ -15,6 +15,8 @@ function Login() {
                 <input type='text' placeholder='Username'/>
                 <input type='text' placeholder='Password'/>
                 <button> <b>Login</b></button>
+                <p>Account creation and login is down</p>
+                <p>because free hosting limit has expired</p>
             </div>
 
 
