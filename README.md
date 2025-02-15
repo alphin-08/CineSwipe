@@ -5,7 +5,7 @@ CineSwipe is a sleek, interactive web app that offers personalized movie and TV 
 
 
 
-For the best user experience please use it on larger screen sizes like laptops and monitors!
+For the best user experience please use this website on larger screen sizes like laptops and monitors!
 
 
 
