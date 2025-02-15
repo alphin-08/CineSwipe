@@ -3,6 +3,14 @@ CineSwipe is a sleek, interactive web app that offers personalized movie and TV 
 
 
 
+
+
+For the best user experience please use it on larger screen sizes like laptops and monitors!
+
+
+
+
+
 Account creation and login are temporarily disabled because the free hosting limit has expired. Keeping it running requires a paid plan, which I haven’t upgraded yet
 
 
