@@ -57,6 +57,9 @@ function PreferencesShows() {
       </div>
 
       <div className="middleContainer-preferenceS">
+        <div className="loadingMessage-S">
+          <p>⚠️ The first generate may take up to 2 minutes, but after that, it will be instant.</p>
+        </div>
         <select
           name="genre"
           value={filters.genre}

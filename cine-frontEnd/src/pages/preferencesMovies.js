@@ -54,6 +54,9 @@ function PreferencesMovies() {
             </div>
 
         <div className="middleContainer-preferenceM">
+            <div className="loadingMessage-M">
+                <p>⚠️ The first generate may take up to 2 minutes, but after that, it will be instant.</p>
+            </div>
             <select
           name="genre"
           value={filters.genre}

@@ -92,8 +92,22 @@
     }
 
     .mainContainer-suggestedM {
-        width: 400px;
-        max-height: calc(100vh - 40px); 
-        overflow-y: auto; 
+        width: 90%;
+        max-width: 100%;
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
+        /* Ensure scrolling */
+        padding-bottom: 50px;
+        /* Extra padding so back button is not cut off */
+    }
+
+    .bottomContainer-suggestedM {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+        padding-bottom: 20px;
+        /* Ensure extra space at the bottom */
     }
 }
