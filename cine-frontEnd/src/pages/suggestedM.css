@@ -96,10 +96,18 @@
         max-width: 100%;
         height: auto;
         min-height: 100vh;
+        overflow-y: visible;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-bottom: 80px;
+    }
+
+    .middleContainer-suggestedM {
+        width: 100%;
         overflow-y: auto;
-        /* Ensure scrolling */
-        padding-bottom: 50px;
-        /* Extra padding so back button is not cut off */
+        max-height: none;
     }
 
     .bottomContainer-suggestedM {
@@ -107,7 +115,6 @@
         width: 100%;
         text-align: center;
         margin-top: 20px;
-        padding-bottom: 20px;
-        /* Ensure extra space at the bottom */
+        padding-bottom: 50px;
     }
 }
