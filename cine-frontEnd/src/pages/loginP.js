@@ -9,14 +9,14 @@ function Login() {
 
             <div class = "topContainer-login">
                 <h1>Login</h1>
+                <p>Account creation and login is down <br/> because free hosting limit has expired</p>
             </div>
 
             <div class = "middleContainer-login">
                 <input type='text' placeholder='Username'/>
                 <input type='text' placeholder='Password'/>
                 <button> <b>Login</b></button>
-                <p>Account creation and login is down</p>
-                <p>because free hosting limit has expired</p>
+                
             </div>
 
 
