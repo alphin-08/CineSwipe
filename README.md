@@ -26,6 +26,11 @@ Try it out here: [CineSwipe App](https://cine-swipe-alphins-projects-bd2e9cb2.ve
 
 
 Input For Languages:
+
+
+
+
+
 kw: Cornish  
 id: Indonesian  
 os: Ossetian  
