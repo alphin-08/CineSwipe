@@ -30,7 +30,7 @@ Input For Languages:
 
 
 
-
+en: English
 kw: Cornish  
 id: Indonesian  
 os: Ossetian  
