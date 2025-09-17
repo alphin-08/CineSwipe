@@ -29,6 +29,7 @@
     font-size: 22px;
     font-weight: 600;
     background: rgb(255, 250, 250);
+    background-color: white;
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(44, 44, 84, 0.3);
     padding: 18px 28px;
@@ -66,7 +67,7 @@
     box-shadow: 0 4px black;
     font-size: 25px;
     cursor: pointer;
-    background-color: rgb(95, 7, 7);
+    background-color: #8a7171;
     color: white;
     /* Ensure text is visible on the button */
     padding: 10px 20px;
@@ -82,31 +83,38 @@
     align-items: center;
 }
 
+.bottomContainer-login button.back-to-main {
+    background-color: white;
+    color: black;
+}
 
+.bottomContainer-login button.guest-btn {
+    background-color: #C3BE7F !important;
+    color:  white !important;
+}
 
-
-@media (max-width: 768px){
-
-    .middleContainer-login button, .bottomContainer-login button{
+@media (max-width: 768px) {
+    .middleContainer-login button,
+    .bottomContainer-login button {
         border-radius: 8px;
         box-shadow: 0 4px black;
         font-size: 16px;
         cursor: pointer;
-        background-color: #8A7171;
+        background-color: #8a7171;
     }
 
-    .middleContainer-login input{
-        width:90%;
+    .middleContainer-login input {
+        width: 90%;
         height: 50px;
         font-size: 25px;
     }
 
-    .middleContainer-login input::placeholder{
-        font-size:20px; 
+    .middleContainer-login input::placeholder {
+        font-size: 20px;
         text-align: center;
     }
 
-    .mainContainer-login{
+    .mainContainer-login {
         max-width: 100%;
         min-width: unset;
         padding: 10px;
@@ -115,7 +123,7 @@
         background-color: black;
     }
 
-    .topContainer-login{
+    .topContainer-login {
         color: white;
         font-size: 14px;
         /* margin-bottom: 50px; */
@@ -129,7 +137,7 @@
         font-size: 32px;
     }
 
-    .middleContainer-login{
+    .middleContainer-login {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -137,10 +145,10 @@
         margin-bottom: 50px;
     }
 
-    .bottomContainer-login{
+    .bottomContainer-login {
         display: flex;
         flex-direction: column;
-        gap:15px; 
+        gap: 15px;
     }
 }
 
@@ -162,7 +170,7 @@
         text-align: center;
     }
 
-    .topContainer-login p{
+    .topContainer-login p {
         font-size: 12px;
     }
 
@@ -205,7 +213,7 @@
         /* Horizontally center the text */
         align-items: center;
         /* Vertically center the text */
-        background-color: #8A7171;
+        background-color: #8a7171;
         /* Button color */
         color: white;
         /* Text color */
@@ -213,7 +221,7 @@
         /* Remove border */
     }
 
-    .bottomContainer-login button b{
+    .bottomContainer-login button b {
         font-size: 12px;
     }
 

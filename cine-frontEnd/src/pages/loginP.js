@@ -25,10 +25,10 @@ function Login() {
                     <button><b>Create an Account</b></button>
                 </Link>
                 <Link to = '/recommendations'>
-                    <button><b>Continue as Guest</b></button>
+                    <button className="guest-btn"><b>Continue as Guest</b></button>
                 </Link>
                 <Link to='/'>
-                    <button><b>Back to Main Page</b></button>
+                    <button className="back-to-main"><b>Back to Main Page</b></button>
                 </Link>
             </div>
         </div>

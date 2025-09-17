@@ -21,7 +21,7 @@ function CreateAccount() {
 
             <div class = "bottomContainer-create">
                 <Link to = '/loginP'> 
-                    <button><b>Back</b></button>
+                    <button className="back-btn"><b>Back</b></button>
                 </Link>
                 <button><b>Create</b></button>
             </div>

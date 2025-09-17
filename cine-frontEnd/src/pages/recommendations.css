@@ -45,7 +45,7 @@
     background-color: #8A7171;
     cursor: pointer;
     color: white;
-
+    /* Ensure text is visible */
 }
 
 .bottomContainer-recommendations .showB {
