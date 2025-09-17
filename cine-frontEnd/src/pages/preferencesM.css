@@ -85,7 +85,7 @@
     color: black;
 }
 
-.loadingMessage-M{
+.loadingMessage-M {
     text-align: center;
     font-size: 12px;
     color: white;
@@ -96,14 +96,19 @@
     margin-bottom: 10px;
 }
 
-@media (max-width: 768px){
-    .mainContainer-preferenceM {
-            padding: 5px;
-            height: 100vh;
-            justify-content: flex-start;
-        }
+.loadingMessage-M p {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
 
-    .bottomContainer-preferenceM button{
+@media (max-width: 768px) {
+    .mainContainer-preferenceM {
+        padding: 5px;
+        height: 100vh;
+        justify-content: flex-start;
+    }
+
+    .bottomContainer-preferenceM button {
         width: 120px;
         height: 40px;
         border-radius: 5px;
@@ -114,18 +119,18 @@
         cursor: pointer;
     }
 
-    .bottomContainer-preferenceM .showB{
+    .bottomContainer-preferenceM .showB {
         background-color: #C3BE7F;
     }
 
-    .middleContainer-preferenceM input{
-        width:0%;
+    .middleContainer-preferenceM input {
+        width: 0%;
         height: 30px;
         font-size: 14px;
     }
 
-    .middleContainer-preferenceM input::placeholder{
-        font-size:12px; 
+    .middleContainer-preferenceM input::placeholder {
+        font-size: 12px;
         text-align: center;
     }
 
@@ -138,7 +143,9 @@
         margin-top: 20px;
         width: 80%;
     }
-    .middleContainer-preferenceM select, .middleContainer-preferenceM input {
+
+    .middleContainer-preferenceM select,
+    .middleContainer-preferenceM input {
         width: 60%;
         height: 35px;
         font-size: 14px;
@@ -148,9 +155,9 @@
         padding: 5px;
     }
 
-    .mainContainer-preferenceM{
+    .mainContainer-preferenceM {
         width: 100vw;
-        height: 100vh; 
+        height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -158,7 +165,7 @@
         background-color: #8A7171;
     }
 
-    .topContainer-preferenceM{
+    .topContainer-preferenceM {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -168,25 +175,24 @@
         margin-top: 5px;
     }
 
-    .topContainer-preferenceM h1{
+    .topContainer-preferenceM h1 {
         font-size: 20px;
         margin-bottom: 20px;
     }
 
-    .bottomContainer-preferenceM{
+    .bottomContainer-preferenceM {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         flex: 1;
-        gap:10px; 
+        gap: 10px;
         margin-top: 20px;
     }
 
-    .loadingMessage-M{
+    .loadingMessage-M {
         font-size: 10px;
         width: 95%;
         padding: 4px;
     }
-
 }

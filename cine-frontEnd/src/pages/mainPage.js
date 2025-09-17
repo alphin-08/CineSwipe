@@ -4,64 +4,92 @@ import "./mainPage.css";
 
 function MainScreen() {
     const [startY, setStartY] = useState(null);
+    const [translateY, setTranslateY] = useState(0);
+    const [isDragging, setIsDragging] = useState(false);
     const navigate = useNavigate();
+
+    const threshold = 200;
 
     const handleTouchStart = (e) => {
         setStartY(e.touches[0].clientY);
+        setIsDragging(true);
     };
 
     const handleTouchMove = (e) => {
-        if (startY !== null) {
-            const currentY = e.touches[0].clientY;
-            if (startY - currentY > 50) {
-                triggerAnimation();
-            }
+        if (!isDragging || startY === null) return;
+        const currentY = e.touches[0].clientY;
+        const deltaY = currentY - startY;
+        if (deltaY < 0) {
+            setTranslateY(deltaY);
         }
+    };
+
+    const handleTouchEnd = () => {
+        setIsDragging(false);
+        if (Math.abs(translateY) > threshold) {
+            setTranslateY(-window.innerHeight);
+            setTimeout(() => {
+                navigate("/loginP");
+            }, 400);
+        } else {
+            setTranslateY(0);
+        }
+        setStartY(null);
     };
 
     const handleMouseDown = (e) => {
         setStartY(e.clientY);
+        setIsDragging(true);
     };
 
     const handleMouseMove = (e) => {
-        if (startY !== null) {
-            const currentY = e.clientY;
-            if (startY - currentY > 50) {
-                triggerAnimation();
-            }
+        if (!isDragging || startY === null) return;
+        const currentY = e.clientY;
+        const deltaY = currentY - startY;
+        if (deltaY < 0) {
+            setTranslateY(deltaY);
         }
     };
 
     const handleMouseUp = () => {
-        setStartY(null);
-    };
-
-    const triggerAnimation = () => {
-        const container = document.querySelector(".mainContainer");
-        if (container) {
-            container.classList.add("slideUp");
+        setIsDragging(false);
+        if (Math.abs(translateY) > threshold) {
+            setTranslateY(-window.innerHeight);
             setTimeout(() => {
-                navigate("/loginP"); // Navigate to the next page
-            }, 500); // Wait for the animation to finish
+                navigate("/loginP");
+            }, 400);
+        } else {
+            setTranslateY(0);
         }
+        setStartY(null);
     };
 
     return (
         <div
             className="mainContainer"
+            style={{
+                transform: `translateY(${translateY}px)`,
+                transition: isDragging ? "none" : "transform 0.4s cubic-bezier(.68,-0.55,.27,1.55)"
+            }}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
         >
             <div className="topContainer">
                 <h1>Cine</h1>
                 <h1>Swipe</h1>
             </div>
-
             <div className="bottomContainer">
-                <button onClick={triggerAnimation}>
+                <button onClick={() => {
+                    setTranslateY(-window.innerHeight);
+                    setTimeout(() => {
+                        navigate("/loginP");
+                    }, 400);
+                }}>
                     <b>Swipe Up</b>
                 </button>
             </div>

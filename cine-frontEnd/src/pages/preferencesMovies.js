@@ -5,7 +5,6 @@ import React from 'react';
 import axios from "axios";
 
 function PreferencesMovies() {
-
   const [filters, setFilters] = useState({
     genre: "",
     year: "",
@@ -13,10 +12,11 @@ function PreferencesMovies() {
     minRating: "",
     maxRating: "",
   });
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
-        localStorage.removeItem("shows");
+    localStorage.removeItem("shows");
   }, []);
   
   const handleInputChange = (e) => {
@@ -28,42 +28,46 @@ function PreferencesMovies() {
     } else {
       setFilters({ ...filters, [name]: value });
     }
+    setErrorMessage(""); // Clear error when user changes input
   };
 
   const handleGenerate = async () => {
+    const hasInput = Object.values(filters).some(val => val !== "");
+    if (!hasInput) {
+      setErrorMessage("Please fill in at least one input.");
+      return;
+    }
     try {
-        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/media`, {
-            params: { ...filters, type: "movies" },
-        });
-        const movies = response.data;
-
-        console.log("API Response:", movies); // Debugging
-
-        if (Array.isArray(movies)) {
-            localStorage.setItem("movies", JSON.stringify(movies));
-            console.log("Movies saved in localStorage:", movies); // Debugging
-            navigate("/suggestedMovies");
-        } else {
-            console.error("Unexpected API Response:", movies);
-            alert("Failed to fetch movies. Please try again.");
-        }
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/media`, {
+        params: { ...filters, type: "movies" },
+      });
+      const movies = response.data;
+      if (Array.isArray(movies)) {
+        localStorage.setItem("movies", JSON.stringify(movies));
+        navigate("/suggestedMovies");
+      } else {
+        setErrorMessage("Failed to fetch movies. Please try again.");
+      }
     } catch (error) {
-        console.error("Error fetching movies:", error.message);
-        alert("An error occurred while fetching movies.");
+      setErrorMessage("An error occurred while fetching movies.");
     }
   };
 
-    return (
-        <div class = "mainContainer-preferenceM">
-            <div class = "topContainer-preferenceM">
-                <h1>MOVIES</h1>
-            </div>
-
-        <div className="middleContainer-preferenceM">
-            <div className="loadingMessage-M">
-                <p>⚠️ The first generate may take up to 2 minutes, but after that, it will be instant.</p>
-            </div>
-            <select
+  return (
+    <div class="mainContainer-preferenceM">
+      <div class="topContainer-preferenceM">
+        <h1>MOVIES</h1>
+      </div>
+      <div className="middleContainer-preferenceM">
+        <div className="loadingMessage-M">
+          <p>⚠️ The first generate may take up to 2 minutes, but after that, it will be instant</p>
+        </div>
+        {errorMessage && (
+          <div style={{ color: "rgb(95, 7, 7)", fontWeight: "bold", fontSize: "1.5rem", marginBottom: "16px", textAlign: "center" }}>
+            {errorMessage}
+          </div>
+        )}
+        <select
           name="genre"
           value={filters.genre}
           onChange={handleInputChange}
@@ -89,7 +93,7 @@ function PreferencesMovies() {
           <option value="10752">War</option>
           <option value="37">Western</option>
         </select>
-            <select
+        <select
           name="year"
           value={filters.year}
           onChange={handleInputChange}
@@ -100,7 +104,7 @@ function PreferencesMovies() {
             <option key={year} value={year}>{year}</option>
           ))}
         </select>
-            <select
+        <select
           name="language"
           value={filters.language}
           onChange={handleInputChange}
@@ -169,39 +173,35 @@ function PreferencesMovies() {
           <option value="ty">Tahitian</option>
           <option value="he">Hebrew</option>
         </select>
-            <select
-            name="minRating"
-            value={filters.minRating}
-            onChange={handleInputChange}
-          >
-            <option value="">Min Rating</option>
-            {Array.from({ length: 10 }, (_, i) => i + 1).map(rating => (
-              <option key={rating} value={rating}>{rating}</option>
-            ))}
-          </select>
-          <select
-            name="maxRating"
-            value={filters.maxRating}
-            onChange={handleInputChange}
-          >
-            <option value="">Max Rating</option>
-            {Array.from({ length: 10 }, (_, i) => i + 1).map(rating => (
-              <option key={rating} value={rating}>{rating}</option>
-            ))}
-          </select>
-        </div>
-
-            <div class = "bottomContainer-preferenceM">
-                <Link to = '/recommendations'> 
-                    <button><b>BACK</b></button>
-                </Link>
-
-                
-                <button onClick = {handleGenerate}><b>Generate</b></button>
-                
-            </div>
-        </div>
-    ); 
+        <select
+          name="minRating"
+          value={filters.minRating}
+          onChange={handleInputChange}
+        >
+          <option value="">Min Rating</option>
+          {Array.from({ length: 10 }, (_, i) => i + 1).map(rating => (
+            <option key={rating} value={rating}>{rating}</option>
+          ))}
+        </select>
+        <select
+          name="maxRating"
+          value={filters.maxRating}
+          onChange={handleInputChange}
+        >
+          <option value="">Max Rating</option>
+          {Array.from({ length: 10 }, (_, i) => i + 1).map(rating => (
+            <option key={rating} value={rating}>{rating}</option>
+          ))}
+        </select>
+      </div>
+      <div class="bottomContainer-preferenceM">
+        <Link to='/recommendations'>
+          <button><b>BACK</b></button>
+        </Link>
+        <button onClick={handleGenerate}><b>Generate</b></button>
+      </div>
+    </div>
+  );
 }
 
 export default PreferencesMovies;

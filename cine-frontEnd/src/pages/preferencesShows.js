@@ -12,9 +12,9 @@ function PreferencesShows() {
     minRating: "",
     maxRating: "",
   });
-    
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
-    
+
   useEffect(() => {
     localStorage.removeItem("movies");
   }, []);
@@ -28,44 +28,45 @@ function PreferencesShows() {
     } else {
       setFilters({ ...filters, [name]: value });
     }
+    setErrorMessage("");
   };
 
   const handleGenerate = async () => {
+    const hasInput = Object.values(filters).some(val => val !== "");
+    if (!hasInput) {
+      setErrorMessage("Please fill in at least one input.");
+      return;
+    }
     try {
-        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/media`, {
-            params: { type: "shows", ...filters },
-        });
-
-        const shows = response.data;
-
-        console.log("API Response:", shows); // Debugging
-
-        // Validate response before saving to localStorage
-        if (Array.isArray(shows)) {
-            localStorage.setItem("shows", JSON.stringify(shows));
-            console.log("Shows saved in localStorage:", shows); // Debugging
-            navigate("/suggestedShows");
-        } else {
-            console.error("Unexpected API Response:", shows);
-            alert("Failed to fetch shows. Please try again.");
-        }
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/media`, {
+        params: { type: "shows", ...filters },
+      });
+      const shows = response.data;
+      if (Array.isArray(shows)) {
+        localStorage.setItem("shows", JSON.stringify(shows));
+        navigate("/suggestedShows");
+      } else {
+        setErrorMessage("Failed to fetch shows. Please try again.");
+      }
     } catch (error) {
-        console.error("Error fetching shows:", error.message);
-        alert("An error occurred while fetching shows. Please try again later.");
+      setErrorMessage("An error occurred while fetching shows.");
     }
   };
-
 
   return (
     <div className="mainContainer-preferenceS">
       <div className="topContainer-preferenceS">
         <h1>SHOWS</h1>
       </div>
-
       <div className="middleContainer-preferenceS">
         <div className="loadingMessage-S">
           <p>⚠️ The first generate may take up to 2 minutes, but after that, it will be instant.</p>
         </div>
+        {errorMessage && (
+          <div style={{ color: "rgb(95, 7, 7)", fontWeight: "bold", fontSize: "1.5rem", marginBottom: "16px", textAlign: "center" }}>
+            {errorMessage}
+          </div>
+        )}
         <select
           name="genre"
           value={filters.genre}
@@ -189,14 +190,12 @@ function PreferencesShows() {
           ))}
         </select>
       </div>
-
       <div className="bottomContainer-preferenceS">
         <Link to="/recommendations">
           <button>
             <b>BACK</b>
           </button>
         </Link>
-
         <button onClick={handleGenerate}>
           <b>Generate</b>
         </button>
