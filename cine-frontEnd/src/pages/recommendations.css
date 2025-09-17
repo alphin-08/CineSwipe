@@ -6,19 +6,12 @@
     align-items: center;
     width: 100%;
     max-width: 1024px;
-    /* Restrict the maximum width */
     min-width: 768px;
-    /* Set the minimum width */
     min-height: 100vh;
-    /* Take up the full viewport height */
-    background-color: #2D2D2D;
-    /* App background */
+    background: linear-gradient(90deg, black 0%, gray 40%, gray 60%, black 100%);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    /* Optional shadow */
     margin: 0 auto;
-    /* Center horizontally */
     padding: 20px;
-    /* Add padding for spacing */
 }
 
 .topContainer-recommendations {
@@ -27,7 +20,6 @@
     justify-content: center;
     align-items: center;
     font-size: 24px;
-    /* Adjusted font size for larger screens */
     color: white;
     margin-bottom: 50px;
 }
@@ -42,10 +34,8 @@
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    /* Add space between buttons */
 }
 
-/* Button styles for larger screens */
 .bottomContainer-recommendations button {
     width: 150px;
     height: 50px;
@@ -55,7 +45,7 @@
     background-color: #8A7171;
     cursor: pointer;
     color: white;
-    /* Ensure text is visible */
+
 }
 
 .bottomContainer-recommendations .showB {

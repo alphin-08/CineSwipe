@@ -21,7 +21,13 @@ function PreferencesShows() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFilters({ ...filters, [name]: value });
+    if (name === "minRating" && filters.maxRating && Number(value) > Number(filters.maxRating)) {
+      setFilters({ ...filters, minRating: value, maxRating: value });
+    } else if (name === "maxRating" && filters.minRating && Number(value) < Number(filters.minRating)) {
+      setFilters({ ...filters, minRating: value, maxRating: value });
+    } else {
+      setFilters({ ...filters, [name]: value });
+    }
   };
 
   const handleGenerate = async () => {
@@ -83,30 +89,105 @@ function PreferencesShows() {
           <option value="10768">War & Politics</option>
           <option value="37">Western</option>
         </select>
-        <input
-          type="text"
+        <select
           name="year"
-          placeholder="Year (e.g., 2023)"
+          value={filters.year}
           onChange={handleInputChange}
-        />
-        <input
-          type="text"
+        >
+          <option value="">Select Year</option>
+          {Array.from({ length: new Date().getFullYear() - 1949 }, (_, i) => new Date().getFullYear() - i).map(year => (
+            <option key={year} value={year}>{year}</option>
+          ))}
+        </select>
+        <select
           name="language"
-          placeholder="Language (e.g., en)"
+          value={filters.language}
           onChange={handleInputChange}
-        />
-        <input
-          type="number"
+        >
+          <option value="">Select Language</option>
+          <option value="en">English</option>
+          <option value="kw">Cornish</option>
+          <option value="id">Indonesian</option>
+          <option value="os">Ossetian</option>
+          <option value="so">Somali</option>
+          <option value="ta">Tamil</option>
+          <option value="uk">Ukrainian</option>
+          <option value="co">Corsican</option>
+          <option value="ki">Kikuyu</option>
+          <option value="st">Sotho</option>
+          <option value="tr">Turkish</option>
+          <option value="bi">Bislama</option>
+          <option value="eu">Basque</option>
+          <option value="ka">Georgian</option>
+          <option value="kj">Kuanyama</option>
+          <option value="zu">Zulu</option>
+          <option value="mk">Macedonian</option>
+          <option value="ba">Bashkir</option>
+          <option value="lt">Lithuanian</option>
+          <option value="as">Assamese</option>
+          <option value="ko">Korean</option>
+          <option value="mn">Mongolian</option>
+          <option value="pi">Pali</option>
+          <option value="bo">Tibetan</option>
+          <option value="kn">Kannada</option>
+          <option value="sa">Sanskrit</option>
+          <option value="bs">Bosnian</option>
+          <option value="mg">Malagasy</option>
+          <option value="jv">Javanese</option>
+          <option value="tg">Tajik</option>
+          <option value="fr">French</option>
+          <option value="kv">Komi</option>
+          <option value="bm">Bambara</option>
+          <option value="de">German</option>
+          <option value="ky">Kyrgyz</option>
+          <option value="yi">Yiddish</option>
+          <option value="dz">Dzongkha</option>
+          <option value="fy">Frisian</option>
+          <option value="it">Italian</option>
+          <option value="pt">Portuguese</option>
+          <option value="ch">Chamorro</option>
+          <option value="hu">Hungarian</option>
+          <option value="li">Limburgish</option>
+          <option value="nv">Navajo</option>
+          <option value="ab">Abkhazian</option>
+          <option value="fo">Faroese</option>
+          <option value="lb">Letzeburgesch</option>
+          <option value="sk">Slovak</option>
+          <option value="ay">Aymara</option>
+          <option value="io">Ido</option>
+          <option value="no">Norwegian</option>
+          <option value="qu">Quechua</option>
+          <option value="sw">Swahili</option>
+          <option value="bg">Bulgarian</option>
+          <option value="ak">Akan</option>
+          <option value="et">Estonian</option>
+          <option value="ig">Igbo</option>
+          <option value="mr">Marathi</option>
+          <option value="na">Nauru</option>
+          <option value="za">Zhuang</option>
+          <option value="ty">Tahitian</option>
+          <option value="he">Hebrew</option>
+        </select>
+        <select
           name="minRating"
-          placeholder="Min Rating (e.g., 7)"
+          value={filters.minRating}
           onChange={handleInputChange}
-        />
-        <input
-          type="number"
+        >
+          <option value="">Min Rating</option>
+          {Array.from({ length: 10 }, (_, i) => i + 1).map(rating => (
+            <option key={rating} value={rating}>{rating}</option>
+          ))}
+        </select>
+        <select
           name="maxRating"
-          placeholder="Max Rating (e.g., 10)"
+          value={filters.maxRating}
           onChange={handleInputChange}
-        />
+        >
+          <option value="">Max Rating</option>
+          {Array.from({ length: 10 }, (_, i) => i + 1).map(rating => (
+            <option key={rating} value={rating}>{rating}</option>
+          ))}
+        </select>
       </div>
 
       <div className="bottomContainer-preferenceS">

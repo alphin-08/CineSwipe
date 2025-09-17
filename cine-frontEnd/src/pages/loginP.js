@@ -27,6 +27,9 @@ function Login() {
                 <Link to = '/recommendations'>
                     <button><b>Continue as Guest</b></button>
                 </Link>
+                <Link to='/'>
+                    <button><b>Back to Main Page</b></button>
+                </Link>
             </div>
         </div>
     ); 

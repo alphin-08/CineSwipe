@@ -6,19 +6,12 @@
     align-items: center;
     width: 100%;
     max-width: 1024px;
-    /* Restrict the maximum width */
     min-width: 768px;
-    /* Set the minimum width */
     min-height: 100vh;
-    /* Take up the full viewport height */
-    background-color: #2D2D2D;
-    /* App background */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    /* Optional shadow */
     margin: 0 auto;
-    /* Center horizontally */
     padding: 20px;
-    /* Add padding for spacing */
+    background: linear-gradient(90deg, black 0%, gray 40%, gray 60%, black 100%);
 }
 
 .topContainer-create {
@@ -63,7 +56,7 @@
     box-shadow: 0 4px black;
     font-size: 25px;
     cursor: pointer;
-    background-color: #8A7171;
+    background-color: rgb(95, 7, 7);
     color: white;
     /* Ensure text is visible on the button */
     padding: 10px 20px;

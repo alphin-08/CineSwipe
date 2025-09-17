@@ -2,17 +2,12 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Monomaniac One';
-    background-color: black;
-    /* Black background for surrounding space */
+    background-color: #181A2A; 
     display: flex;
     justify-content: center;
-    /* Center horizontally */
     align-items: center;
-    /* Center vertically */
     min-height: 100vh;
-    /* Full viewport height */
     overflow: hidden;
-    /* Prevent scrolling */
 }
 
 .mainContainer {
@@ -21,19 +16,12 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    /* Allow full width responsiveness */
     max-width: 1024px;
-    /* Restrict the maximum width */
     min-width: 768px;
-    /* Ensure it doesn't get narrower than 768px */
     height: 100vh;
-    /* Take up the full viewport height */
-    background-color: #2D2D2D;
-    /* App background */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    /* Optional shadow */
+    /* background-color: #2D254C;  */
+    background: linear-gradient(90deg, black 0%, gray 40%, gray 60%, black 100%);
     margin: 0 auto;
-    /* Center horizontally */
 }
 
 .topContainer {
@@ -53,8 +41,8 @@ body {
 
 .bottomContainer {
     width: 100%;
-    margin-top: auto;
-    margin-bottom: 40px;
+    margin-bottom: 30px; /* Increase if you want more space below */
+    margin-top: 40px;    /* Add space above the button */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -63,10 +51,10 @@ body {
 
 .bottomContainer button {
     border-radius: 8px;
-    box-shadow: 0 4px black;
+    box-shadow: 0 4px #000000;
     font-size: 25px;
     cursor: pointer;
-    background-color: #8A7171;
+    background: rgb(95, 7, 7);
     color: white;
     padding: 10px 20px;
     border: none;
