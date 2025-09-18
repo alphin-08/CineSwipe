@@ -4,11 +4,11 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 1024px;
-    min-width: 768px;
-    min-height: 100vh;
+    max-width: 100%;
+    min-width: unset;
+    height: 100dvh;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    margin: 0 auto;
+    margin: 0;
     padding: 20px;
     background: linear-gradient(90deg, black 0%, gray 40%, gray 60%, black 100%);
 }
@@ -106,6 +106,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        height: 100dvh;
     }
 
     .topContainer-create{
@@ -141,12 +142,11 @@
         width: 100%;
         padding: 10px;
         box-shadow: none;
-        background-color: black;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        height: 100vh;
+        height: 100dvh;
     }
 
     .topContainer-create {

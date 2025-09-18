@@ -1,12 +1,11 @@
-body {
+html, body {
     margin: 0;
     padding: 0;
     font-family: 'Monomaniac One';
-    background-color: #181A2A; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    background-color: #000; 
+    display: block;
+    height: 100%;
+    min-height: 100dvh;
     overflow: hidden;
 }
 
@@ -16,12 +15,11 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    max-width: 1024px;
-    min-width: 768px;
-    height: 100vh;
+    max-width: 100%;
+    height: 100dvh;
     /* background-color: #2D254C;  */
     background: linear-gradient(90deg, black 0%, gray 40%, gray 60%, black 100%);
-    margin: 0 auto;
+    margin: 0;
 }
 
 .topContainer {
@@ -74,10 +72,10 @@ body {
         justify-content: center;
         align-items: center ;
         width: 100%;
-        height: 100vh;
+        height: 100dvh;
         transform: translateY(0);
         transition: transform 0.5s ease-in-out;
-        background-color: black;
+        /* keep gradient background from base rule */
     }
 
     .mainContainer.slideUp {
@@ -111,7 +109,42 @@ body {
         box-shadow: 0 4px black;
         font-size: 25px;
         cursor: pointer;
-        background-color: #8A7171;
     }
 
+}
+
+
+@media (max-width: 700px) {
+
+    html,
+    body {
+        height: 100%;
+        min-height: 100dvh;
+        margin: 0;
+    }
+
+    .mainContainer {
+        width: 100%;
+        max-width: 100%;
+        height: 100dvh;
+        min-height: 100dvh;
+        margin: 0;
+    }
+
+    .topContainer {
+        margin-top: 6vh;
+    }
+
+    .topContainer h1 {
+        font-size: clamp(24px, 7vw, 36px);
+    }
+
+    .bottomContainer {
+        margin-top: 8vh;
+        margin-bottom: 2vh;
+    }
+
+    .bottomContainer button {
+        font-size: clamp(18px, 5.2vw, 22px);
+    }
 }
