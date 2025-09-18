@@ -20,7 +20,7 @@
 }
 
 .topContainer-suggestedM h1 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw, 3.2rem);
     font-weight: bold;
     color: white;
     text-align: center;
@@ -65,7 +65,7 @@
 
 .movieImgM img {
     width: 100%;
-    max-width: 280px;
+    max-width: clamp(240px, 36vw, 600px);
     height: auto;
     border-radius: 8px;
     margin-bottom: 10px;
@@ -84,8 +84,8 @@
 }
 
 .headersM h2 {
-    font-size: 1.3rem;
-    line-height: 1.35;
+    font-size: clamp(1.1rem, 2vw, 1.6rem);
+    line-height: 1.4;
     margin: 4px 0;
     word-wrap: break-word;
 }
@@ -105,7 +105,7 @@
 .bottomContainer-suggestedM button {
     width: 100px;
     height: 35px;
-    font-size: 0.9rem;
+    font-size: clamp(0.95rem, 1.2vw, 1.1rem);
     background-color: white;
     color: #4B3E3E;
     border: none;
@@ -138,8 +138,8 @@
     }
 
     .headersM h2 {
-        font-size: 1.15rem;
-        line-height: 1.4;
+        font-size: clamp(1.2rem, 1.8vw, 1.8rem);
+        line-height: 1.45;
     }
 
     .bottomContainer-suggestedM {
